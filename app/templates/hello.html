@@ -4,10 +4,30 @@
       <title>Rathduff Out Of School Service</title>
   </head>
   <body>
+          <script data-main="scripts/main" src="static/require.js"></script>
 <script>
-  window.prismic = {
-      endpoint: 'https://lhgyelae.cdn.prismic.io/api/v2'
-        };
+  var Prismic = require('prismic-javascript');
+  	
+	 
+	 	
+		var apiEndpoint = "https://lhgyelae.prismic.io/api/v2";
+			
+				
+				 
+				 	
+					Prismic.getApi(apiEndpoint).then(function(api) {
+						
+						  return api.query(""); // An empty query will return all the documents
+						  	
+							}).then(function(response) {
+								
+								  console.log("Documents: ", response.results);
+								  	
+									}, function(err) {
+										
+										  console.log("Something went wrong: ", err);
+										  	
+											})
 	</script>
 	<script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js"></script>
   </body>
