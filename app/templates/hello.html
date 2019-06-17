@@ -4,19 +4,25 @@
       <title>Rathduff Out Of School Service</title>
   </head>
   <body>
-          <script data-main="scripts/main" src={{ url_for('static', filename='require.js') }}></script>
-<script>
-  require(['prismic-javascript'], function(Prismic) {
-  var apiEndpoint = "https://lhgyelae.prismic.io/api/v2";
-  Prismic.getApi(apiEndpoint).then(function(api) {						
-    return api.query(""); // An empty query will return all the documents						  	
-	}).then(function(response) {
-	  console.log("Documents: ", response.results);							  	
-	}, function(err) {									
-	  console.log("Something went wrong: ", err);				  	
-        });
-    });
-	</script>
-	<script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js"></script>
+    <h1>Rathduff Community Out Of School Service</h1>
+    <h2>Non-profit community based organisation registered with Early Childhood Ireland</h2>
+    <h3>From 7:30 to 9:20</h3>
+    <ul>
+      <li>Drop off for school</li>
+      <li>Breakfast provided</li>
+      <li>Children's activities</li>
+      <li>Children safely accompanied to school</li>
+    </ul>
+    <h3>From 14:00 to 18:00</h3>
+    <ul>
+      <li>Collected from school @14:00 &amp; 15:00</li>
+      <li>Accompanied to school bus</li>
+      <li>Supervised homework</li>
+      <li>Snacks provided</li>
+      <li>Playtime and activities, indoor and outdoor</li>
+    </ul>
+  <h2>Contact</h2>
+  <p><em>Ger Manning</em>&nbsp;086 2482939
+  <p><em>Email</em> &nbsp; ooss_rathduff@outlook.com
   </body>
 </html>
