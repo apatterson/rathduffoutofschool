@@ -6,8 +6,7 @@
   <body>
           <script data-main="scripts/main" src={{ url_for('static', filename='require.js') }}></script>
 <script>
-define(function(require) {
-  var Prismic = require('prismic-javascript');
+  require(['prismic-javascript'], function(Prismic) {
   var apiEndpoint = "https://lhgyelae.prismic.io/api/v2";
   Prismic.getApi(apiEndpoint).then(function(api) {						
     return api.query(""); // An empty query will return all the documents						  	
