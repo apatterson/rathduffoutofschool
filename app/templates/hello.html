@@ -192,7 +192,8 @@
 		  </ul>
 		</div>
             </section>
-	    </div>        <div class="mdl-layout__tab-panel is-active" id="pay">	    
+	    </div>       
+		  <div class="mdl-layout__tab-panel is-active" id="pay">	    
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div class="mdl-card mdl-cell mdl-cell--12-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
               <div class="mdl-card__supporting-text">
@@ -210,7 +211,7 @@
     {% else %}
 		      <h4>Pay Rathduff Out of School with Stripe</h4>
 		      <em>Experimental. Please do not enter any credit card details yet</em>
-    <form action="/pay" method="get">
+    <form action="/#pay" method="get">
       <div class="form-field">
         <label for="amount">Amount (EUR)</label>
         <input id="amount" name="amount" type="number" placeholder="Amount" required>
