@@ -75,9 +75,12 @@
           <a href="#latest" class="mdl-layout__tab is-active">Make a payment</a>
         </div>
       </header>
-	    <main>
-		<div class="container">
-    {% if amount %}
+<main class="mdl-layout__content">
+	<div class="mdl-layout__tab-panel is-active" id="latest">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+              <div class="mdl-card__supporting-text">
+		          {% if amount %}
     <p class="heading">You are about to pay <strong>€{{amount}}</strong>.</p>
     <form class="stripe-form" action="/charge" method="post">
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -121,7 +124,11 @@
   </div>
 </div>
     {% endif %}
-  </div>
-	    </main>
+		    </div>
+		  </div>
+	</section>
+          
+	</div>
+	</main>
   </body>
 </html>
