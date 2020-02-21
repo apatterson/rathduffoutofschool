@@ -2,7 +2,9 @@ import os
 import stripe
 from flask import Flask, request, session
 from flask import render_template, Response, redirect, send_from_directory
+
 app = Flask(__name__)
+app.secret_key = os.getenv('SECRET_KEY', 'secret')
 
 stripe_pub_key = os.environ['STRIPE_PUB_KEY']
 stripe.api_key = os.environ['STRIPE_SECRET_KEY']
