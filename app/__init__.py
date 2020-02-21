@@ -8,5 +8,5 @@ def hello():
 
 @app.route("/pay/")
 def pay():
-    return render_template('pay.html)'
+    return render_template('pay.html')
 
