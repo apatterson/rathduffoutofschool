@@ -46,7 +46,7 @@ def charge():
     )
     return render_template(
         'hello.html',
-        paid=true
+        paid=True
     )
 
 
