@@ -12,7 +12,22 @@ stripe.api_key = os.environ['STRIPE_SECRET_KEY']
 
 @app.route("/")
 def hello():
-    return render_template('hello.html')
+    amount = request.args.get('amount', 0)
+    reason = request.args.get('reason', '')
+    try:
+        amount = amount
+    except:
+        amount = 0
+
+    session['reason'] = reason
+    session['amount'] = amount
+    
+    return render_template(
+        'hello.html',
+        key=stripe_pub_key,
+        amount=amount,
+        reason=reason
+    )
 
 @app.route("/pay/")
 def pay():
