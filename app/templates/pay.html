@@ -88,13 +88,12 @@
             data-description="{{reason}}"
             data-currency="{{currency}}"
             data-amount="{{amount}}"
-            data-alipay="true"
             data-locale="auto">
       </script>
     </form>
     {% else %}
     Pay Rathduff Out of School with Stripe
-    <form action="/pay" method="get">
+    <form action="/#pay" method="get">
       <div class="form-field">
         <label for="amount">Amount (EUR)</label>
         <input id="amount" name="amount" type="number" placeholder="Amount" required>
