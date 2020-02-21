@@ -199,7 +199,7 @@
               <div class="mdl-card__supporting-text">
 				          {% if amount %}
     <p class="heading">You are about to pay <strong>€{{amount}}</strong>.</p>
-    <form class="stripe-form" action="/" method="post">
+    <form class="stripe-form" action="/charge" method="post">
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="{{key}}"
             data-description="{{reason}}"
