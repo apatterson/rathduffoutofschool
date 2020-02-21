@@ -72,10 +72,40 @@
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-          <a href="#latest" class="mdl-layout__tab is-active">Latest</a>          
-          <a href="#services" class="mdl-layout__tab is-active">Services</a>          
-	  <a href="#contact" class="mdl-layout__tab is-active">Contact</a>
+          <a href="#latest" class="mdl-layout__tab is-active">Make a payment</a>
         </div>
       </header>
+	    <main>
+		<div class="container">
+    {% if amount %}
+    <p class="heading">You are abouut to pay <strong>€{{amount}}</strong>.</p>
+    <form class="stripe-form" action="/charge" method="post">
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="{{key}}"
+            data-description="{{reason}}"
+            data-currency="jpy"
+            data-amount="{{amount}}"
+            data-alipay="true"
+            data-locale="auto">
+      </script>
+    </form>
+    {% else %}
+    <p class="heading">Pay Rathduff Out of School with Stripe.</p>
+    <form action="/" method="get">
+      <div class="form-field">
+        <label for="amount">Amount (EUR)</label>
+        <input id="amount" name="amount" type="number" placeholder="Amount" required>
+      </div>
+      <div class="form-field">
+        <label for="reason">Notes</label>
+        <input id="reason" name="reason" type="text" placeholder="Any additional information" value="{{reason}}">
+      </div>
+      <div class="form-field">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    {% endif %}
+  </div>
+	    </main>
   </body>
 </html>
