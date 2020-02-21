@@ -55,7 +55,7 @@ def charge():
     email = request.form['stripeEmail']
     token = request.form['stripeToken']
     reason = session.get('reason') or 'A Charge'
-    amount = int(session['amount'])
+    amount = session['amount']
     stripe.Charge.create(
         receipt_email=email,
         source=token,
