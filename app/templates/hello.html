@@ -85,6 +85,40 @@
 		<h4>Rathduff Community Out of School Service</h4>
 		Non-profit community based organisation registered with Early Childhood Ireland
           </section>
+		    
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+              <div class="mdl-card__supporting-text">
+				          {% if amount %}
+    <p class="heading">You are about to pay <strong>€{{amount}}</strong>.</p>
+    <form class="stripe-form" action="/charge" method="post">
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="{{key}}"
+            data-description="{{reason}}"
+            data-currency="{{currency}}"
+            data-amount="{{amount}}"
+            data-alipay="true"
+            data-locale="auto">
+      </script>
+    </form>
+    {% else %}
+    Pay Rathduff Out of School with Stripe
+    <form action="/pay" method="get">
+      <div class="form-field">
+        <label for="amount">Amount (EUR)</label>
+        <input id="amount" name="amount" type="number" placeholder="Amount" required>
+      </div>
+      <div class="form-field">
+        <label for="reason">Notes</label>
+        <input id="reason" name="reason" type="text" placeholder="Any additional information" value="{{reason}}">
+      </div>
+      <div class="form-field">
+        <button type="submit" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+    </button>
+      </div>
+    </form>
+    {% endif %}
+          </section>
 
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="overview">
             <div class="mdl-card mdl-cell mdl-cell--12-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
