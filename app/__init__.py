@@ -29,25 +29,6 @@ def hello():
         reason=reason
     )
 
-@app.route("/pay/")
-def pay():
-    amount = request.args.get('amount', 0)
-    reason = request.args.get('reason', '')
-    try:
-        amount = int(amount)
-    except:
-        amount = 0
-
-    session['reason'] = reason
-    session['amount'] = amount
-    
-    return render_template(
-        'pay.html',
-        key=stripe_pub_key,
-        amount=amount,
-        reason=reason
-    )
-
 @app.route('/charge', methods=['GET', 'POST'])
 def charge():
     if request.method == 'GET':
@@ -63,7 +44,10 @@ def charge():
         currency='eur',
         description=reason,
     )
-    return render_template('success.html')
+    return render_template(
+        'hello.html',
+        paid=true
+    )
 
 
 @app.route('/robots.txt')
