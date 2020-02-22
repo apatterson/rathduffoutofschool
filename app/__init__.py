@@ -15,7 +15,7 @@ def hello():
     amount = request.args.get('amount', 0)
     reason = request.args.get('reason', '')
     try:
-        amount = amount * 100
+        amount = float(amount) * 100
     except:
         amount = 0
 
