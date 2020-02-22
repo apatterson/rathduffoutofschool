@@ -80,19 +80,13 @@
       </header>
 	    {% if paid %}
 <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
-  <div class="mdl-snackbar__text"></div>
+  <div class="mdl-snackbar__text">Thank you for paying</div>
   <button class="mdl-snackbar__action" type="button"></button>
 </div>
 <script>
 (function() {
-  'use strict';
-  var snackbarContainer = document.querySelector('#demo-snackbar-example');
-
-   var data = {
-      message: 'Payment successful.',
-      timeout: 5000
-    };
-    snackbarContainer.MaterialSnackbar.showSnackbar(data);
+   setTimeout(function() {
+	   window.location="/";
   
 }());
 </script>
