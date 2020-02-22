@@ -227,8 +227,8 @@
 		      <em>Experimental. Please do not enter any credit card details yet</em>
     <form action="/#pay" method="get">
       <div class="form-field">
-        <label for="amount">Amount (EUR)</label>
-        <input id="amount" name="amount" type="number" placeholder="Amount" required>
+        <label for="amount">Amount €</label>
+        <input id="amount" name="amount" type="number" min="0.01" step="0.01" />placeholder="Amount" required>
       </div>
       <div class="form-field">
         <label for="reason">Notes</label>
