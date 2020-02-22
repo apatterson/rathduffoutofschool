@@ -222,18 +222,19 @@
     {% else %}
 		      <h4>Pay Rathduff Out of School with Stripe</h4>
 		      <em>Experimental. Please do not enter any credit card details yet</em>
-
+<p>
 <form action="/#pay">
   <div class="mdl-textfield mdl-js-textfield">
     <input class="mdl-textfield__input" type="text" id="reason" name="reason">
-    <label class="mdl-textfield__label" for="sample1">Notes...</label>
+    <label class="mdl-textfield__label" for="reason">Notes...</label>
   </div>
-<!-- Numeric Textfield -->
+ <p>
   <div class="mdl-textfield mdl-js-textfield">
     <input class="mdl-textfield__input" id="amount" name="amount" type="number" min="0.01" step="0.01" required>
-    <label class="mdl-textfield__label" for="sample2">€</label>
+    <label class="mdl-textfield__label" for="amount">€</label>
     <span class="mdl-textfield__error">Input is not a number!</span>
  </div>
+ <p>
  <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Pay</button>
 
 </form>
