@@ -37,6 +37,7 @@ def charge():
     token = request.form['stripeToken']
     reason = session.get('reason') or 'A Charge'
     amount = session['amount']
+    message = "Thank you, payment accepted"
     try :
         stripe.Charge.create(
             receipt_email=email,
@@ -46,11 +47,11 @@ def charge():
             description=reason,
         )
     except Exception as e:
-        return e
+        message = e.message
     
     return render_template(
         'hello.html',
-        paid=True
+        message=message
     )
 
 
