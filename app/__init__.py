@@ -37,13 +37,17 @@ def charge():
     token = request.form['stripeToken']
     reason = session.get('reason') or 'A Charge'
     amount = session['amount']
-    stripe.Charge.create(
-        receipt_email=email,
-        source=token,
-        amount=amount,
-        currency='eur',
-        description=reason,
-    )
+    try :
+        stripe.Charge.create(
+            receipt_email=email,
+            source=token,
+            amount=amount,
+            currency='eur',
+            description=reason,
+        )
+    except Exception as e:
+        return e
+    
     return render_template(
         'hello.html',
         paid=True
