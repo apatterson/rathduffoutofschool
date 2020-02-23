@@ -47,7 +47,7 @@ def charge():
             description=reason,
         )
     except Exception as e:
-        message = e.message
+        message = e.error.message
     
     return render_template(
         'hello.html',
