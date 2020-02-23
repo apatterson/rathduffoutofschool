@@ -79,9 +79,9 @@
 	  <a href="#contact" class="mdl-layout__tab is-active">Contact</a>
         </div>
       </header>
-	    {% if paid %}
+	    {% if message %}
 <div>
-  Thank you for paying
+  {% message %}
 </div>
 <script>
    setTimeout(function() {
