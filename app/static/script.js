@@ -4,11 +4,11 @@ var bill = document.getElementById("order-amount").firstChild.nodeValue;
 var fees =  ((bill * .014 + .25) * 1.23).toFixed(2);
 var total = parseFloat(bill) + parseFloat(fees);
 var orderData = {
-  items: [fees + bill],
+  items: [total],
   currency: "eur"
 };
 
-document.getElementById("order-amount").firstChild.nodeValue = fees + bill;
+document.getElementById("order-amount").firstChild.nodeValue = total;
 
 // Disable the button until we have Stripe set up on the page
 document.querySelector("button").disabled = true;
