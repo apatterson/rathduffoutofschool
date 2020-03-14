@@ -1,7 +1,9 @@
-import os
 import stripe
-from flask import Flask, request, session
-from flask import render_template, Response, redirect, send_from_directory
+import json
+import os
+
+from flask import Flask, render_template, jsonify, request, send_from_directory
+from dotenv import load_dotenv, find_dotenv
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'secret')
