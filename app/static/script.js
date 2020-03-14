@@ -3,11 +3,11 @@ var stripe;
 var bill = document.getElementById("order-amount").firstChild.nodeValue;
 var fees =  ((bill * .014 + .25) * 1.23).toFixed(2);
 var orderData = {
-  items: [bill + fees],
+  items: [fees + bill],
   currency: "eur"
 };
 
-document.getElementById("order-amount").firstChild.nodeValue = bill + fees;
+document.getElementById("order-amount").firstChild.nodeValue = fees + bill;
 
 // Disable the button until we have Stripe set up on the page
 document.querySelector("button").disabled = true;
