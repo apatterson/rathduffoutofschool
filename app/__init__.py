@@ -30,7 +30,7 @@ def hello():
     )
 
 @app.route("/intent")
-def intent
+def intent():
     # Set your secret key. Remember to switch to your live secret key in production!
     # See your keys here: https://dashboard.stripe.com/account/apikeys
     stripe.api_key = 'sk_test_TMBFQTvbZvdFhYhkm5rPKONL007EIsPo5H'
