@@ -2,7 +2,7 @@
 var stripe;
 
 var orderData = {
-  items: [{ id: "photo-subscription" }],
+  items: [10],
   currency: "usd"
 };
 
