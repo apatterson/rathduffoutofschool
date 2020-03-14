@@ -3,7 +3,7 @@ var stripe;
 
 var orderData = {
   items: [10],
-  currency: "usd"
+  currency: "eur"
 };
 
 // Disable the button until we have Stripe set up on the page
