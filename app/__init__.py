@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'secret')
 
 stripe_pub_key = os.environ['STRIPE_PUB_KEY']
-stripe.api_key = os.environ['STRIPE_SECRET_KEY']
+stripe.api_key = os.environ['TEST_SECRET_KEY']
 
 def calculate_order_amount(items):
     # Replace this constant with a calculation of the order's amount
