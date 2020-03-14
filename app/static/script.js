@@ -1,6 +1,6 @@
 // A reference to Stripe.js
 var stripe;
-var bill = (document.getElementById("order-amount").firstChild.nodeValue * 1.014 + .25).toFixed(2);
+var bill = ((document.getElementById("order-amount").firstChild.nodeValue * 1.014 + .25) * 1.23).toFixed(2);
 var orderData = {
   items: [bill],
   currency: "eur"
