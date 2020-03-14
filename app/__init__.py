@@ -47,6 +47,22 @@ def intent():
         secret=intent.client_secret
     )
 
+@app.route('/create-payment-intent', methods=['POST'])
+def create_payment():
+    data = json.loads(request.data)
+    # Create a PaymentIntent with the order amount and currency
+    intent = stripe.PaymentIntent.create(
+        amount=calculate_order_amount(data['items']),
+        currency=data['currency']
+    )
+
+    try:
+        # Send publishable key and PaymentIntent details to client
+        return jsonify({'publishableKey': os.getenv('STRIPE_PUBLISHABLE_KEY'), 'clientSecret': intent.client_secret})
+    except Exception as e:
+        return jsonify(error=str(e)), 403
+    
+    
 @app.route('/charge', methods=['GET', 'POST'])
 def charge():
     if request.method == 'GET':
