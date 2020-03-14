@@ -1,12 +1,12 @@
 // A reference to Stripe.js
 var stripe;
-var bill = document.getElementById("order-amount").firstChild.nodeValue;
+var bill = (document.getElementById("order-amount").firstChild.nodeValue * 1.014 + .25).toFixed(2);
 var orderData = {
   items: [bill],
   currency: "eur"
 };
 
-document.getElementById("order-amount").firstChild.nodeValue = (bill * 1.14 + .25).toFixed(2);
+document.getElementById("order-amount").firstChild.nodeValue = bill;
 
 // Disable the button until we have Stripe set up on the page
 document.querySelector("button").disabled = true;
