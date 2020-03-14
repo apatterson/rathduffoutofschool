@@ -40,8 +40,7 @@ def hello():
     )
 
 @app.route("/intent")
-def intent():
-    
+def intent():    
     return render_template(
         'pay.html'
     )
