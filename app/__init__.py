@@ -39,8 +39,8 @@ def hello():
 @app.route("/intent")
 def intent():    
     amount = request.args.get('amount', 0)   
-    amount = request.args.get('email', 0) 
-    amount = request.args.get('notes', 0)
+    email = request.args.get('email', 0) 
+    notes = request.args.get('notes', 0)
     return render_template(
         'pay.html',
         amount=amount,
