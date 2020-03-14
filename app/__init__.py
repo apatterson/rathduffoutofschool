@@ -11,9 +11,6 @@ app.secret_key = os.getenv('SECRET_KEY', 'secret')
 stripe_pub_key = os.environ['STRIPE_PUB_KEY']
 stripe.api_key = os.environ['STRIPE_SECRET_KEY']
 
-test.api_key = os.environ['TEST_SECRET_KEY']
-test.pub_key = os.environ['TEST_PUB_KEY']
-
 def calculate_order_amount(items):
     # Replace this constant with a calculation of the order's amount
     # Calculate the order total on the server to prevent
@@ -56,7 +53,7 @@ def create_payment():
 
     try:
         # Send publishable key and PaymentIntent details to client
-        return jsonify({'publishableKey': test.pub_key, 'clientSecret': intent.client_secret})
+        return jsonify({'publishableKey': os.environ['TEST_PUB_KEY'], 'clientSecret': intent.client_secret})
     except Exception as e:
         return jsonify(error=str(e)), 403
     
