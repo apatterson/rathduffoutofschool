@@ -35,7 +35,7 @@ def intent():
     # See your keys here: https://dashboard.stripe.com/account/apikeys
     stripe.api_key = 'sk_test_TMBFQTvbZvdFhYhkm5rPKONL007EIsPo5H'
 
-    stripe.PaymentIntent.create(
+    intent = stripe.PaymentIntent.create(
         amount=1000,
         currency='eur',
         payment_method_types=['card'],
@@ -44,7 +44,7 @@ def intent():
     
     return render_template(
         'hello.html',
-        message=message
+        message=intent.status
     )
 
 @app.route('/charge', methods=['GET', 'POST'])
