@@ -6,7 +6,7 @@ var orderData = {
   currency: "eur"
 };
 
-document.getElementById("order-amount").firstChild.nodeValue = bill * 1.14 + .25;
+document.getElementById("order-amount").firstChild.nodeValue = (bill * 1.14 + .25).toFixed(2);
 
 // Disable the button until we have Stripe set up on the page
 document.querySelector("button").disabled = true;
