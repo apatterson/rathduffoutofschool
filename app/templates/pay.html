@@ -8,6 +8,7 @@
     <title>Rathduff Out of School Service</title>
     <script src="https://js.stripe.com/v3/"></script>
 	  <script src="static/script.js"></script>
+	  <script src="static/client.js"></script>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -48,5 +49,15 @@
     <script async src="https://cdn.ampproject.org/v0.js"></script>
   </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+	  <form id="payment-form">
+  <div id="card-element">
+    <!-- Elements will create input elements here -->
+  </div>
+
+  <!-- We'll put the error messages in this element -->
+  <div id="card-errors" role="alert"></div>
+
+  <button id="submit">Pay</button>
+</form>
   </body>
 </html>
