@@ -43,8 +43,8 @@ def intent():
     )
     
     return render_template(
-        'hello.html',
-        message=intent.status
+        'pay.html',
+        secret=intent.client_secret
     )
 
 @app.route('/charge', methods=['GET', 'POST'])
