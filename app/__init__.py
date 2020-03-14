@@ -38,8 +38,14 @@ def hello():
 
 @app.route("/intent")
 def intent():    
+    amount = request.args.get('amount', 0)   
+    amount = request.args.get('email', 0) 
+    amount = request.args.get('notes', 0)
     return render_template(
-        'pay.html'
+        'pay.html',
+        amount=amount,
+        notes=notes,
+        email=email
     )
 
 @app.route('/create-payment-intent', methods=['POST'])
