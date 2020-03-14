@@ -11,11 +11,14 @@ app.secret_key = os.getenv('SECRET_KEY', 'secret')
 stripe_pub_key = os.environ['STRIPE_PUB_KEY']
 stripe.api_key = os.environ['STRIPE_SECRET_KEY']
 
+test.api_key = os.environ['TEST_SECRET_KEY']
+test.pub_key = os.environ['TEST_PUB_KEY']
+
 def calculate_order_amount(items):
     # Replace this constant with a calculation of the order's amount
     # Calculate the order total on the server to prevent
     # people from directly manipulating the amount on the client
-    return 1400
+    return 10
 
 @app.route("/")
 def hello():
@@ -38,20 +41,9 @@ def hello():
 
 @app.route("/intent")
 def intent():
-    # Set your secret key. Remember to switch to your live secret key in production!
-    # See your keys here: https://dashboard.stripe.com/account/apikeys
-    stripe.api_key = 'sk_test_TMBFQTvbZvdFhYhkm5rPKONL007EIsPo5H'
-
-    intent = stripe.PaymentIntent.create(
-        amount=1000,
-        currency='eur',
-        payment_method_types=['card'],
-        receipt_email='anthony.patterson2.0@gmail.com',
-    )
     
     return render_template(
-        'pay.html',
-        secret=intent.client_secret
+        'pay.html'
     )
 
 @app.route('/create-payment-intent', methods=['POST'])
@@ -65,7 +57,7 @@ def create_payment():
 
     try:
         # Send publishable key and PaymentIntent details to client
-        return jsonify({'publishableKey': stripe_pub_key, 'clientSecret': intent.client_secret})
+        return jsonify({'publishableKey': test.pub_key, 'clientSecret': intent.client_secret})
     except Exception as e:
         return jsonify(error=str(e)), 403
     
