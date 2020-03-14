@@ -35,12 +35,12 @@ def intent():
     # See your keys here: https://dashboard.stripe.com/account/apikeys
     stripe.api_key = 'sk_test_TMBFQTvbZvdFhYhkm5rPKONL007EIsPo5H'
 
-    stripe.PaymentIntent.create(
-    amount=1000,
-    currency='eur',
-    payment_method_types=['card'],
-    receipt_email='jenny.rosen@example.com',
-)
+    return stripe.PaymentIntent.create(
+        amount=1000,
+        currency='eur',
+        payment_method_types=['card'],
+        receipt_email='jenny.rosen@example.com',
+    )
 
 @app.route('/charge', methods=['GET', 'POST'])
 def charge():
