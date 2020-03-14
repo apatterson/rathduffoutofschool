@@ -2,6 +2,7 @@
 var stripe;
 var bill = document.getElementById("order-amount").firstChild.nodeValue;
 var fees =  ((bill * .014 + .25) * 1.23).toFixed(2);
+var total = parseFloat(bill) + parseFloat(fees);
 var orderData = {
   items: [fees + bill],
   currency: "eur"
