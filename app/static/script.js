@@ -2,7 +2,7 @@
 var stripe;
 
 var orderData = {
-  items: [document.getElementById("order-amount").firstChild],
+  items: [document.getElementById("order-amount").firstChild.nodeValue],
   currency: "eur"
 };
 
