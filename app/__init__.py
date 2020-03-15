@@ -59,15 +59,9 @@ def create_payment():
 
     try:
         # Send publishable key and PaymentIntent details to client
-        return render_template(
-        'hello.html',
-        message="Thank you, payment accepted"
-    )
+        return jsonify({'publishableKey': os.environ['TEST_PUB_KEY'], 'clientSecret': intent.client_secret})
     except Exception as e:
-        return render_template(
-        'hello.html',
-        message=str(e)
-    )
+        return jsonify(error=str(e)), 403
     
     
 @app.route('/charge', methods=['GET', 'POST'])
