@@ -39,13 +39,11 @@ def hello():
 @app.route("/intent")
 def intent():    
     amount = request.args.get('amount', 0)   
-    email = request.args.get('email', 0) 
+    session['email'] = request.args.get('email', 0) 
     notes = request.args.get('notes', 0)
     return render_template(
         'pay.html',
-        amount=amount,
-        notes=notes,
-        email=email
+        amount=amount
     )
 
 @app.route('/create-payment-intent', methods=['POST'])
@@ -59,7 +57,11 @@ def create_payment():
 
     try:
         # Send publishable key and PaymentIntent details to client
-        return jsonify({'publishableKey': os.environ['TEST_PUB_KEY'], 'clientSecret': intent.client_secret})
+        return jsonify({
+            'publishableKey': os.environ['TEST_PUB_KEY'], 
+            'clientSecret': intent.client_secret,
+            'receipt_email': session['email']
+        })
     except Exception as e:
         return jsonify(error=str(e)), 403
     
