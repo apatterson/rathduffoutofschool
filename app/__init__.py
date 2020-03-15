@@ -2,7 +2,7 @@ import stripe
 import json
 import os
 
-from flask import Flask, render_template, jsonify, request, send_from_directory
+from flask import Flask, render_template, jsonify, request, send_from_directory, session
 from dotenv import load_dotenv, find_dotenv
 
 app = Flask(__name__)
