@@ -40,7 +40,7 @@ def hello():
 def intent():    
     amount = request.args.get('amount', 0)   
     session['email'] = request.args.get('email', 0) 
-    notes = request.args.get('notes', 0)
+    session['notes'] = request.args.get('notes', 0)
     return render_template(
         'pay.html',
         amount=amount
@@ -52,15 +52,16 @@ def create_payment():
     # Create a PaymentIntent with the order amount and currency
     intent = stripe.PaymentIntent.create(
         amount=calculate_order_amount(data['items']),
-        currency=data['currency']
+        currency=data['currency'],
+        receipt_email=session['email'],
+        description=session['notes']
     )
 
     try:
         # Send publishable key and PaymentIntent details to client
         return jsonify({
             'publishableKey': os.environ['TEST_PUB_KEY'], 
-            'clientSecret': intent.client_secret,
-            'receipt_email': session['email']
+            'clientSecret': intent.client_secret
         })
     except Exception as e:
         return jsonify(error=str(e)), 403
