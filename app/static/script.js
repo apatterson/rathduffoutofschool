@@ -21,7 +21,7 @@ fetch("/create-payment-intent", {
   body: JSON.stringify(orderData)
 })
   .then(function(result) {
-    return result.json();
+    window.location.href = '/' ;
   })
   .then(function(data) {
     return setupElements(data);
