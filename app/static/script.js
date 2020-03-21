@@ -1,7 +1,7 @@
 // A reference to Stripe.js
 var stripe;
 var bill = document.getElementById("order-amount").firstChild.nodeValue;
-var fees =  ((bill * .014 + .28) * 1.23).toFixed(2);
+var fees =  ((bill * .014 + .25) * 1.23).toFixed(2);
 var total = parseFloat(bill) + parseFloat(fees);
 var orderData = {
   items: [total],
