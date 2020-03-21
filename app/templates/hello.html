@@ -209,24 +209,12 @@
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div class="mdl-card mdl-cell mdl-cell--12-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
               <div class="mdl-card__supporting-text">
-				          {% if amount %}
-    <p class="heading">You are about to pay <strong>€{{amount/100}}</strong>.</p>
-    <form class="stripe-form" action="/charge" method="post">
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="{{key}}"
-            data-description="{{reason}}"
-            data-currency="eur"
-            data-amount="{{amount}}"
-            data-locale="auto">
-      </script>
-    </form>
-    {% else %}
 		      <h4>Pay Rathduff Out of School with Stripe</h4>
 		      <em>Experimental. Please do not enter any credit card details yet</em>
 <p>
-<form action="/#pay"> 
+<form action="/intent"> 
   <div class="mdl-textfield mdl-js-textfield">
-    <textarea class="mdl-textfield__input" type="text" rows= "3" id="reason" ></textarea>
+    <textarea class="mdl-textfield__input" type="text" rows= "3" id="reason" name="notes"></textarea>
     <label class="mdl-textfield__label" for="reason">Notes&hellip;</label>
   </div>
  <p>
@@ -234,11 +222,14 @@
     <input class="mdl-textfield__input" id="amount" name="amount" type="number" min="0.01" step="0.01" required>
     <label class="mdl-textfield__label" for="amount">€</label>
  </div>
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" id="email" name="email" type="email" required>
+    <label class="mdl-textfield__label" for="email">@</label>
+ </div>
  <p>
  <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Pay</button>
 
 </form>
-    {% endif %}
           </section>
 		  </div>
             <div class="mdl-layout__tab-panel is-active" id="contact">
