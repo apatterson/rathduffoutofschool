@@ -19,21 +19,12 @@ def calculate_order_amount(items):
 
 @app.route("/")
 def hello():
-    amount = request.args.get('amount', 0)
-    reason = request.args.get('reason', '')
-    try:
-        amount = int(float(amount) * 100)
-    except:
-        amount = 0
-
-    session['reason'] = reason
-    session['amount'] = amount
+    message = request.args.get('message', '')
     
     return render_template(
         'hello.html',
         key=stripe_pub_key,
-        amount=amount,
-        reason=reason
+        message=message
     )
 
 @app.route("/intent")
