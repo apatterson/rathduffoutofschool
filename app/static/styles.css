@@ -236,3 +236,9 @@ html, body {
 .mdl-demo .mdl-menu__container {
   z-index: 99;
 }
+
+.spacer {
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1
+}
