@@ -7,7 +7,7 @@
         /* Show login form if user is not logged in */
         let html = `
           <form onsubmit="handleLogin(event)">
-            <input type="email" name="email" required="required" placeholder="Enter your email" class="mdl-textfield__input"/>
+            <input type="email" name="email" required="required" placeholder="Enter your email"/>
             <button type="submit">Login</button>
           </form>
         `;
@@ -15,7 +15,7 @@
           /* Get user metadata including email */
           const userMetadata = await magic.user.getMetadata();
           html = `
-            Hello ${userMetadata.email} 
+            ${userMetadata.email} 
             <button onclick="handleLogout()">Logout</button>
           `;
         }
