@@ -6,10 +6,9 @@
         const isLoggedIn = await magic.user.isLoggedIn();
         /* Show login form if user is not logged in */
         let html = `
-          Login: 
           <form onsubmit="handleLogin(event)">
-            <input type="email" name="email" required="required" placeholder="Enter your email" />
-            <button type="submit">Send</button>
+            <input type="email" name="email" required="required" placeholder="Enter your email" class="mdl-textfield__input"/>
+            <button type="submit">Login</button>
           </form>
         `;
         if (isLoggedIn) {
