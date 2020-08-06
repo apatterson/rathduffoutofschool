@@ -2,8 +2,9 @@ import stripe
 import json
 import os
 
-from flask import Flask, render_template, jsonify, request, response, send_from_directory, session
+from flask import Flask, render_template, jsonify, request, send_from_directory, session
 from dotenv import load_dotenv, find_dotenv
+from flask_talisman import Talisman
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'secret')
@@ -19,7 +20,6 @@ def calculate_order_amount(items):
 
 @app.route("/")
 def hello():
-    response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
     message = request.args.get('message', '')
     
     return render_template(
