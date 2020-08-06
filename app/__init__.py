@@ -7,7 +7,19 @@ from dotenv import load_dotenv, find_dotenv
 from flask_talisman import Talisman
 
 app = Flask(__name__)
-Talisman(app)
+talisman = Talisman(app,
+         content_security_policy={
+        'default-src': SELF,
+        'img-src': '*',
+        'script-src': [
+            SELF,
+            'code.getmdl.io',
+        ],
+        'style-src': [
+            SELF,
+            'code.getmdl.io',
+        ],
+    })
 csrf = SeaSurf(app)
 app.secret_key = os.getenv('SECRET_KEY', 'secret')
 
