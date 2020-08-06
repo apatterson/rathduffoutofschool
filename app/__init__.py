@@ -16,6 +16,7 @@ talisman = Talisman(app,
             'fonts.gstatic.com'
         ],
         'media-src': '*',
+        'img-src': '*',
         'script-src': [
             SELF,
             'code.getmdl.io',
@@ -28,7 +29,8 @@ talisman = Talisman(app,
             'code.getmdl.io',
             'fonts.googleapis.com'
         ],
-    })
+    },
+    content_security_policy_nonce_in=['script-src'])
 
 csrf = SeaSurf(app)
 app.secret_key = os.getenv('SECRET_KEY', 'secret')
