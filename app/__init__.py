@@ -15,10 +15,12 @@ talisman = Talisman(app,
         'script-src': [
             SELF,
             'code.getmdl.io',
+            'js.stripe.com'
         ],
         'style-src': [
             SELF,
             'code.getmdl.io',
+            'fonts.googleapis.com'
         ],
     })
 app.secret_key = os.getenv('SECRET_KEY', 'secret')
