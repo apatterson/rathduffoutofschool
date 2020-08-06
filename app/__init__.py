@@ -7,6 +7,7 @@ from dotenv import load_dotenv, find_dotenv
 from flask_talisman import Talisman
 
 app = Flask(__name__)
+SELF = "'self'"
 talisman = Talisman(app,
          content_security_policy={
         'default-src': SELF,
