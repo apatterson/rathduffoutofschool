@@ -22,7 +22,8 @@ talisman = Talisman(app,
         'style-src': [
             SELF,
             'code.getmdl.io',
-            'fonts.googleapis.com'
+            'fonts.googleapis.com',
+            'fonts.gstatic.com'
         ],
     })
 
