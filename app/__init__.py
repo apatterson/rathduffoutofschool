@@ -21,7 +21,6 @@ talisman = Talisman(app,
             'code.getmdl.io',
         ],
     })
-csrf = SeaSurf(app)
 app.secret_key = os.getenv('SECRET_KEY', 'secret')
 
 stripe_pub_key = os.environ['STRIPE_PUB_KEY']
