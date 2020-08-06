@@ -7,6 +7,7 @@ from dotenv import load_dotenv, find_dotenv
 from flask_talisman import Talisman
 
 app = Flask(__name__)
+Talisman(app)
 app.secret_key = os.getenv('SECRET_KEY', 'secret')
 
 stripe_pub_key = os.environ['STRIPE_PUB_KEY']
