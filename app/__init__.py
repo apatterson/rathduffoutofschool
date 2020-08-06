@@ -11,7 +11,10 @@ app = Flask(__name__)
 SELF = "'self'"
 talisman = Talisman(app,
          content_security_policy={
-        'default-src': SELF,
+        'default-src': [
+            SELF,
+            'fonts.gstatic.com'
+        ],
         'media-src': '*',
         'script-src': [
             SELF,
@@ -22,8 +25,7 @@ talisman = Talisman(app,
         'style-src': [
             SELF,
             'code.getmdl.io',
-            'fonts.googleapis.com',
-            'fonts.gstatic.com'
+            'fonts.googleapis.com'
         ],
     })
 
