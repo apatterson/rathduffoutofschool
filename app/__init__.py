@@ -5,17 +5,19 @@ import os
 from flask import Flask, render_template, jsonify, request, send_from_directory, session
 from dotenv import load_dotenv, find_dotenv
 from flask_talisman import Talisman
+from flask_seasurf import SeaSurf
 
 app = Flask(__name__)
 SELF = "'self'"
 talisman = Talisman(app,
          content_security_policy={
         'default-src': SELF,
-        'img-src': '*',
+        'media-src': '*',
         'script-src': [
             SELF,
             'code.getmdl.io',
-            'js.stripe.com'
+            'js.stripe.com',
+            'cdn.ampproject.org'
         ],
         'style-src': [
             SELF,
@@ -23,6 +25,8 @@ talisman = Talisman(app,
             'fonts.googleapis.com'
         ],
     })
+
+csrf = SeaSurf(app)
 app.secret_key = os.getenv('SECRET_KEY', 'secret')
 
 stripe_pub_key = os.environ['STRIPE_PUB_KEY']
