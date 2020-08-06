@@ -20,7 +20,8 @@ talisman = Talisman(app,
             SELF,
             'code.getmdl.io',
             'js.stripe.com',
-            'cdn.ampproject.org'
+            'cdn.ampproject.org',
+            'cdn.jsdelivr.net'
         ],
         'style-src': [
             SELF,
