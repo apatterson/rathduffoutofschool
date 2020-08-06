@@ -19,6 +19,7 @@ def calculate_order_amount(items):
 
 @app.route("/")
 def hello():
+    response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
     message = request.args.get('message', '')
     
     return render_template(
