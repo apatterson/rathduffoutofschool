@@ -24,6 +24,7 @@ talisman = Talisman(app,
             'cdn.ampproject.org',
             'cdn.jsdelivr.net'
         ],
+        'frame-src': 'js.stripe.com',
         'style-src': [
             SELF,
             'code.getmdl.io',
