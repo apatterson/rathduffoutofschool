@@ -31,7 +31,7 @@ talisman = Talisman(app,
             'fonts.googleapis.com'
         ],
     },
-    content_security_policy_nonce_in=['script-src'])
+    content_security_policy_nonce_in=['script-src' 'style-src'])
 
 csrf = SeaSurf(app)
 app.secret_key = os.getenv('SECRET_KEY', 'secret')
