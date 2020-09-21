@@ -6,8 +6,8 @@
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Rathduff Out of School Service</title>
-    <script nonce="{{ csp_nonce() }} src="https://js.stripe.com/v3/"></script>
-    <script nonce="{{ csp_nonce() }} src="static/script.js" defer></script>
+    <script nonce="{{ csp_nonce() }}" src="https://js.stripe.com/v3/"></script>
+    <script nonce="{{ csp_nonce() }}" src="static/script.js" defer></script>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="static/styles.css">
     <link rel="stylesheet" href="static/normalize.css" />
     <link rel="stylesheet" href="static/global.css" />
-    <style  nonce="{{ csp_nonce() }}>
+    <style  nonce="{{ csp_nonce() }}">
       #view-source {
       position: fixed;
       display: block;
@@ -47,7 +47,7 @@
       z-index: 900;
       }
     </style>
-    <script nonce="{{ csp_nonce() }} async src="https://cdn.ampproject.org/v0.js"></script>
+    <script nonce="{{ csp_nonce() }}" async src="https://cdn.ampproject.org/v0.js"></script>
   </head>
  <body>
     <div class="sr-root">
