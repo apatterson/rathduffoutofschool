@@ -19,7 +19,6 @@ talisman = Talisman(app,
         'img-src': '*',
         'script-src': [
             SELF,
-            'unsafe-inline',
             'code.getmdl.io',
             'js.stripe.com',
             'cdn.ampproject.org',
@@ -28,6 +27,7 @@ talisman = Talisman(app,
         'frame-src': 'js.stripe.com',
         'style-src': [
             SELF,
+            'unsafe-inline',
             'code.getmdl.io',
             'fonts.googleapis.com'
         ],
